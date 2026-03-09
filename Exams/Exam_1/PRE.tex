@@ -1,130 +1,315 @@
-\documentclass[10pt]{article}
+\documentclass[letterpaper]{article} 
 \usepackage[utf8]{inputenc}
+\linespread{0.85}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{hyperref}
 \usepackage[version=4]{mhchem}
 \usepackage{stmaryrd}
-\usepackage{bbold}
-
-\begin{document}
-\section*{Probability II. Take-home midterm. Explain and justify wherever possible.}
-\begin{enumerate}
-  \item Let $\left(M_{n}\right)_{n \geq 0}$ be a discrete-time martingale in $\left(\Omega, \mathcal{F},\left(\mathcal{F}_{n}\right)_{n \geq 0}, \mathbb{P}\right)$. Assume $M_{0}=0$, $\mathbb{E}\left(M_{n}^{4}\right)<\infty$ for all $n \geq 0$, and write $\Delta_{n}=M_{n}-M_{n-1}$ for $n \geq 1$.\\[0pt]
-(a) [3 points] Show that there are absolute constants $c, C>0$ (i.e. not depending on $M$ or $n)$ such that:
-\end{enumerate}
-
-$$
-c \mathbb{E}\left(\left(\Delta_{1}^{2}+\cdots+\Delta_{n}^{2}\right)^{2}\right) \leq \mathbb{E}\left(M_{n}^{4}\right) \leq C \mathbb{E}\left(\left(\Delta_{1}^{2}+\cdots+\Delta_{n}^{2}\right)^{2}\right)
-$$
-
-(b) $[2 \mathrm{pts}]$ Let $\left(H_{n}\right)$ be an $\left(\mathcal{F}_{n}\right)$-adapted process such that $\left|H_{n}\right| \leq 1$ for all $n \geq 0$. Let $\left(N_{n}\right)$ be such that $N_{0}=0$ and $N_{n}-N_{n-1}=H_{n-1} \Delta_{n}$ for $n \geq 1$. Show that there is an absolute constant $C^{\prime}$ (i.e. not depending on $M, H$ or $n$ ) such that
-
-$$
-\mathbb{E}\left(N_{n}^{4}\right) \leq C^{\prime} \mathbb{E}\left(M_{n}^{4}\right)
-$$
-
-\begin{enumerate}
-  \setcounter{enumi}{1}
-  \item Consider the branching process $\left(X_{n}\right)_{n \geq 0}$ taking values in $\mathbb{N}$ given by $X_{0}=x_{0}$,
-\end{enumerate}
-
-$$
-X_{n+1}=\sum_{m=1}^{X_{n}} \xi_{m, n}
-$$
-
-where the $\left(\xi_{m, n}\right)_{m, n \geq 1}$ are iid with common distribution $\mu$ (and values in $\mathbb{N}$ ). Set $m=\sum_{k \geq 0} k \mu\{k\}$.\\[0pt]
-(a) [3 points] Show that $\left(X_{n} / m^{n}\right)_{n \geq 0}$ is a martingale (in the canonical filtration of $\left(X_{n}\right)$ ).\\[0pt]
-(b) [3 pts] Show that if $m \leq 1$, a.s. ( $X_{n}$ ) reaches eventually the absorbing state 0 , except in the trivial case $\mu=\delta_{1}$. (Use martingale convergence).\\[0pt]
-(c) [2 pts] Assume now that $m>1$ and $\sigma^{2}=\operatorname{Var}(\xi)<\infty$. Compute $\mathbb{E}\left(X_{n+1}^{2}\right)$ in terms of $\mathbb{E}\left(X_{n}^{2}\right), m, \sigma$. Conclude that ( $X_{n} / m^{n}$ ) is bounded in $L^{2}$ and that $\lim X_{n}=\infty$ with positive probability.\\
-3. Let ( $B_{t}$ ) be a standard Brownian motion.\\
-(a) $[4$ pts $]$ Fix $a<b<c$. Assume that $B_{0}=c$; let $\tau$ be the first time $B$ hits $c$ after the first time it hits $b$; and let $\xi$ be the number of downcrossings of the interval $(a, b)$ before $\tau$. Find the law of $\xi$ and its expectation.\\
-(b) $[4$ pts $]$ Assume that $B_{0}=1$ and $\sigma$ is the first time $B$ hits 2 . Let $D_{n}$ denote the number of downcrossings of the interval $\left(2^{-n-1}, 2^{-n}\right)$ before $\sigma$. Show that
-
-$$
-L=\lim _{n \rightarrow \infty} 2^{-n} D_{n}
-$$
-
-exists and is finite a.s.; is zero if $B$ does not hit 0 before $\sigma$; and is positive with positive probability. [Use Problem 2].\\[0pt]
-4. [4 pts] Let $B$ be a standard Brownian motion. Fix $t>0$. Show that $\left(B_{t}, \int_{0}^{t} B_{s} d s\right)$ is a centered Gaussian vector in $\mathbb{R}^{2}$ and find its covariance matrix.\\[0pt]
-5. [4 pts] Let $\left(B_{t}\right)$ be a standard BM, and $H$ be a progressive locally bounded process. Fix an integer $k \geq 1$. Find progressive processes $H, L$ such that for all $t \geq 0$
-
-$$
-\left(\int_{0}^{t} H_{s} d B_{s}\right)^{k}=\int_{0}^{t} K_{s} d B_{s}+\int_{0}^{t} L_{s} d s
-$$
-
-\begin{enumerate}
-  \setcounter{enumi}{5}
-  \item \hspace{0pt} [5 pts] Let $B=\left(B^{(1)}, \ldots, B^{(d)}\right)$ be a standard BM in $\mathbb{R}^{d}$ (w.r.t. some filtration $\left(\mathcal{F}_{t}\right)$ ).
-  \item \hspace{0pt} [4 pts] Let ( $B_{t}$ ) be a standard Brownian motion. Find a strictly increasing function $\alpha:[0, \infty) \rightarrow[0, \infty)$ and another standard Brownian motion $\tilde{B}$ s.t.
-\end{enumerate}
-
-$$
-\int_{0}^{\alpha(t)} s d B_{s}=\int_{0}^{t} r^{2} d \tilde{B}_{r}
-$$
-
-\begin{enumerate}
-  \setcounter{enumi}{7}
-  \item \hspace{0pt} [5 pts] Let $\left(M_{t}\right)$ be a continuous local martingale such that $M_{0}=1$ and $M_{t} \geq 0$ for all $t \geq 0$. Show that $\langle M\rangle_{\infty}$ is a.s. finite.
-  \item \hspace{0pt} [5 pts] Let $B=\left(B^{(1)}, \ldots, B^{(d)}\right)$ be a standard BM in $\mathbb{R}^{d}$ (w.r.t. some filtration $\left(\mathcal{F}_{t}\right)$ ). Let $H^{(1)}, \ldots, H^{(d)}$ be progressive processes such that a.s. for all $t \geq 0$,
-\end{enumerate}
-
-$$
-\left(H_{t}^{(1)}\right)^{2}+\cdots+\left(H_{t}^{(d)}\right)^{2} \geq 1
-$$
-
-Let $X$ be the process with values in $\mathbb{R}^{d}$ given by $X_{0}^{(i)}=0, d X_{t}^{(i)}=H_{t}^{(i)} d B_{t}^{(i)}$ for $i=1, \ldots, d$. Let $\tau=\inf \left\{t \geq 0:\left\|X_{t}\right\| \geq 1\right\}$. Show that $\mathbb{E}(\tau) \leq 1$.\\
-10. Let $B$ be a standard $\left(\mathcal{F}_{t}\right)$-Brownian motion on $\left(\Omega, \mathcal{F},\left(\mathcal{F}_{t}\right), \mathbb{P}\right)$ with $B_{0}=1$. Let $\tau_{x}$ denote the first hitting time of $x$, and for $n \geq 1$ set
-
-$$
-\mathbb{Q}_{n}(\cdot)=\mathbb{P}\left(\cdot \mid \tau_{n}<\tau_{0}\right)
-$$
-
-(a) $[3 \mathrm{pts}]$ Evaluate $M_{t}^{(n)}=\mathbb{E}_{\mathbb{P}}\left(\mathbf{1}_{\tau_{n}<\tau_{0}} \mid \mathcal{F}_{t}\right)$.\\[0pt]
-(b) [4 pts] Find a function $b_{n}:(0, \infty) \rightarrow \mathbb{R}$ such that, under $\mathbb{Q}_{n}$, there is a standard Brownian motion $\beta$ such that
-
-$$
-d B_{t}=d \beta_{t}+b_{n}\left(B_{t}\right) \mathbf{1}_{t \leq \tau_{n}} d t
-$$
-
-(c) [2 pts] Show that the law of $B^{\tau_{m}}$ is the same under any $\mathbb{Q}_{n}, n \geq m$.\\
-11. Fix $\mu>0$; let $\left(B_{t}\right)_{t \geq 0}$ be a standard BM started from 0 .\\[0pt]
-(a) [2 pts] Check that $Z=\int_{0}^{\infty} e^{B_{t}-\mu t} d t$ is a.s. finite and positive.\\
-(b) $[3 \mathrm{pts}]$ For $n \in \mathbb{N}$, evaluate $\mathbb{E}\left(Z^{n}\right) \in(0, \infty]$.\\[0pt]
-(c) [2 pts] For $t \geq 0$, check that $Z$ has the same law as
-
-$$
-\int_{0}^{t} e^{B_{s}-\mu s} d s+\tilde{Z} e^{B_{t}-\mu t}
-$$
-
-where $\tilde{Z}$ is independent from $B$ and has the same law as $Z$.\\
-(d) $[3$ pts $]$ Let $\phi \in C_{c}^{\infty}((0, \infty), \mathbb{R})$. Show that
-
-$$
-\mathbb{E}\left(\frac{1}{2} \phi^{\prime \prime}(Z) Z^{2}+\phi^{\prime}(Z)(1+\nu Z)\right)=0
-$$
-
-where $\nu=\frac{1}{2}-\mu$.\\[0pt]
-(e) [2 pts] Assume that $Z$ has a smooth probability density function $f$. Find an ordinary differential equation solved by $f$. Extra: solve it.\\[0pt]
-12. [6 points] Let $B$ be a standard Brownian motion. Let $H$ be a progressive process (in the filtration generated by $B$ ). Fix a time horizon $T$ and a constant $\delta$, and assume $\left|H_{t}\right| \leq \delta$ a.s. for $t \in[0, T]$. Let $\tilde{B}_{t}=B_{t}+\int_{0}^{t} H_{s} d s$.\\
-Let $\mathbb{P}$ denote the law of $\left(B_{t}\right)_{0 \leq t \leq T}$, and $\tilde{\mathbb{P}}$ denote the law of $\left(\tilde{B}_{t}\right)_{0 \leq t \leq T}$, seen as probability measures on $C([0, T], \mathbb{R})$.\\
-Show that
-
-$$
-2\|\tilde{\mathbb{P}}-\mathbb{P}\|_{T V}=\mathbb{E}_{\mathbb{P}}\left|\frac{d \tilde{\mathbb{P}}}{d \mathbb{P}}-1\right| \leq \sqrt{\exp \left(\delta^{2} T\right)-1}
-$$
-
-\begin{enumerate}
-  \setcounter{enumi}{12}
-  \item \hspace{0pt} [6 points] Let $B$ be a standard Brownian motion. Let $A$ be the family of pairs $(H, K)$ of progressive processes (in the filtration generated by $B$ ) such that $\left|H_{t}\right| \leq 1$ a.s. for all $t \geq 0$, and $\left|K_{t}\right| \leq 1$ a.s. for all $t \geq 0$. For $\alpha=(H, K) \in A$, let $\mathbb{P}_{\alpha}$ denote the law of $\left(X^{(\alpha)}\right)_{0 \leq t \leq 1}$, seen as a probability measure on $C([0,1], \mathbb{R})$, where $X^{(\alpha)}$ is the process such that $X_{0}^{(\alpha)}=0$ and
-\end{enumerate}
-
-$$
-d X_{t}^{(\alpha)}=H_{t} d B_{t}+K_{t} d t
-$$
-
-Show that $\left(\mathbb{P}_{\alpha}\right)_{\alpha \in A}$ is a tight family of probability measures on $C([0,1], \mathbb{R})$.
-
-
-\end{document}
+\usepackage[dvipsnames]{xcolor}
+\colorlet{LightRubineRed}{RubineRed!70}
+\colorlet{Mycolor1}{green!10!orange}
+\definecolor{Mycolor2}{HTML}{00F9DE}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{capt-of}
+\usepackage{lipsum}
+\usepackage{fancyvrb}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{capt-of}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref} 
+\usepackage{xcolor} % For custom colors
+\lstset{
+	language=Python,                % Choose the language (e.g., Python, C, R)
+	basicstyle=\ttfamily\small, % Font size and type
+	keywordstyle=\color{blue},  % Keywords color
+	commentstyle=\color{gray},  % Comments color
+	stringstyle=\color{red},    % String color
+	numbers=left,               % Line numbers
+	numberstyle=\tiny\color{gray}, % Line number style
+	stepnumber=1,               % Numbering step
+	breaklines=true,            % Auto line break
+	backgroundcolor=\color{black!5}, % Light gray background
+	frame=single,               % Frame around the code
+}
+\usepackage{float}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+	\usepackage[]{amssymb} %gives us the character \varnothing
+	
+	\title{Exam 1, MATH 6153}
+	\author{Zongyi Liu}
+	\date{Fri, Mar 6, 2026}
+	\begin{document}
+		\maketitle
+		\section{Question 1}
+		
+		Let $\left(M_{n}\right)_{n \ge 0}$ be a discrete-time martingale in 
+		$\left(\Omega, \mathcal{F}, (\mathcal{F}_{n})_{n \ge 0}, \mathbb{P}\right)$. 
+		Assume $M_{0}=0$, $\mathbb{E}(M_{n}^{4})<\infty$ for all $n \ge 0$, and write
+		$\Delta_{n}=M_{n}-M_{n-1}$ for $n \ge 1$.
+		
+		\begin{enumerate}
+			\item[a.] Show that there are absolute constants $c, C>0$ 
+			(i.e.\ not depending on $M$ or $n$) such that
+			$$
+			c\,\mathbb{E}\!\left((\Delta_{1}^{2}+\cdots+\Delta_{n}^{2})^{2}\right)
+			\le
+			\mathbb{E}\!\left(M_{n}^{4}\right)
+			\le
+			C\,\mathbb{E}\!\left((\Delta_{1}^{2}+\cdots+\Delta_{n}^{2})^{2}\right).
+			$$
+			
+			\item[b.] Let $(H_n)$ be an $(\mathcal{F}_n)$-adapted process such that
+			$|H_n|\le 1$ for all $n\ge 0$. Let $(N_n)$ be such that $N_0=0$ and
+			$$
+			N_n - N_{n-1} = H_{n-1}\Delta_n, \qquad n \ge 1.
+			$$
+			Show that there is an absolute constant $C'$ (i.e.\ not depending on $M$, $H$
+			or $n$) such that
+			$$
+			\mathbb{E}(N_n^{4}) \le C'\,\mathbb{E}(M_n^{4}).
+			$$
+		\end{enumerate}
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 2}
+		
+		Consider the branching process $(X_n)_{n \ge 0}$ taking values in $\mathbb{N}$ given by
+		$X_0 = x_0$ and
+		$$
+		X_{n+1} = \sum_{m=1}^{X_n} \xi_{m,n},
+		$$
+		where the $(\xi_{m,n})_{m,n \ge 1}$ are iid with common distribution $\mu$
+		(and values in $\mathbb{N}$). Set
+		$$
+		m = \sum_{k \ge 0} k\,\mu\{k\}.
+		$$
+		
+		\begin{enumerate}
+			\item[a.] Show that $(X_n/m^n)_{n \ge 0}$ is a martingale
+			(in the canonical filtration of $(X_n)$).
+			
+			\item[b.] Show that if $m \le 1$, a.s.\ $(X_n)$ reaches eventually
+			the absorbing state $0$, except in the trivial case $\mu=\delta_1$.
+			(Use martingale convergence).
+			
+			\item[c.] Assume now that $m>1$ and $\sigma^2=\operatorname{Var}(\xi)<\infty$.
+			Compute $\mathbb{E}(X_{n+1}^2)$ in terms of $\mathbb{E}(X_n^2)$, $m$, and $\sigma$.
+			Conclude that $(X_n/m^n)$ is bounded in $L^2$ and that
+			$$
+			\lim X_n = \infty
+			$$
+			with positive probability.
+		\end{enumerate}
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 3}
+		
+		Let $(B_t)$ be a standard Brownian motion.
+		
+		\begin{enumerate}
+			\item[a.] Fix $a<b<c$. Assume that $B_0=c$; let $\tau$ be the first
+			time $B$ hits $c$ after the first time it hits $b$; and let $\xi$ be the number
+			of downcrossings of the interval $(a,b)$ before $\tau$. Find the law of $\xi$
+			and its expectation.
+			
+			\item[b.] Assume that $B_0=1$ and $\sigma$ is the first time $B$
+			hits $2$. Let $D_n$ denote the number of downcrossings of the interval
+			$(2^{-n-1},2^{-n})$ before $\sigma$. Show that
+			$$
+			L=\lim_{n\to\infty} 2^{-n}D_n
+			$$
+			exists and is finite a.s.; is zero if $B$ does not hit $0$ before $\sigma$; and
+			is positive with positive probability.
+		\end{enumerate}
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 4}
+		
+		Let $B$ be a standard Brownian motion. Fix $t>0$. Show that $\left(B_{t}, \int_{0}^{t} B_{s} d s\right)$ is a centered Gaussian vector in $\mathbb{R}^{2}$ and find its covariance matrix.
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 5}
+		
+		Let $\left(B_{t}\right)$ be a standard BM, and $H$ be a progressive locally bounded process. Fix an integer $k \geq 1$. Find progressive processes $H, L$ such that for all $t \geq 0$
+		
+		$$
+		\left(\int_{0}^{t} H_{s} d B_{s}\right)^{k}=\int_{0}^{t} K_{s} d B_{s}+\int_{0}^{t} L_{s} d s
+		$$
+		
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 6}
+		
+		Let $B=\left(B^{(1)}, \ldots, B^{(d)}\right)$ be a standard BM in
+		$\mathbb{R}^d$ (with respect to some filtration $(\mathcal{F}_t)$).
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 7}
+		
+		Let $(B_t)$ be a standard Brownian motion. Find a strictly
+		increasing function $\alpha:[0,\infty)\to[0,\infty)$ and another standard
+		Brownian motion $\tilde{B}$ such that $$
+		\int_{0}^{\alpha(t)} s d B_{s}=\int_{0}^{t} r^{2} d \tilde{B}_{r}
+		$$
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 8}
+		
+		Let $\left(M_{t}\right)$ be a continuous local martingale such that $M_{0}=1$ and $M_{t} \geq 0$ for all $t \geq 0$. Show that $\langle M\rangle_{\infty}$ is a.s. finite.
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 9}
+		
+		Let $B=\left(B^{(1)}, \ldots, B^{(d)}\right)$ be a standard BM in $\mathbb{R}^{d}$ (w.r.t. some filtration $\left(\mathcal{F}_{t}\right)$ ). Let $H^{(1)}, \ldots, H^{(d)}$ be progressive processes such that a.s. for all $t \geq 0$,
+		$$
+		\left(H_{t}^{(1)}\right)^{2}+\cdots+\left(H_{t}^{(d)}\right)^{2} \geq 1
+		$$
+		
+		Let $X$ be the process with values in $\mathbb{R}^{d}$ given by $X_{0}^{(i)}=0, d X_{t}^{(i)}=H_{t}^{(i)} d B_{t}^{(i)}$ for $i=1, \ldots, d$. Let $\tau=\inf \left\{t \geq 0:\left\|X_{t}\right\| \geq 1\right\}$. Show that $\mathbb{E}(\tau) \leq 1$.
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 10}
+		
+		Let $B$ be a standard $(\mathcal{F}_t)$-Brownian motion on
+		$(\Omega,\mathcal{F},(\mathcal{F}_t),\mathbb{P})$ with $B_0=1$.
+		Let $\tau_x$ denote the first hitting time of $x$, and for $n \ge 1$ set
+		$$
+		\mathbb{Q}_n(\cdot)=\mathbb{P}(\cdot \mid \tau_n<\tau_0).
+		$$
+		
+		\begin{enumerate}
+			\item[a.] Evaluate
+			$$
+			M_t^{(n)}=\mathbb{E}_{\mathbb{P}}\!\left(\mathbf{1}_{\tau_n<\tau_0}\mid \mathcal{F}_t\right).
+			$$
+			
+			\item[b.] Find a function $b_n:(0,\infty)\to\mathbb{R}$ such that,
+			under $\mathbb{Q}_n$, there is a standard Brownian motion $\beta$ such that
+			$$
+			dB_t = d\beta_t + b_n(B_t)\,\mathbf{1}_{t\le \tau_n}\,dt.
+			$$
+			
+			\item[c.] Show that the law of $B^{\tau_m}$ is the same under any
+			$\mathbb{Q}_n$, $n \ge m$.
+		\end{enumerate}
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 11}
+		\begin{enumerate}
+			\item[a.] Fix $\mu>0$; let $\left(B_t\right)_{t\ge 0}$ be a standard Brownian motion started from $0$.
+			Check that
+			\[
+			Z=\int_0^{\infty} e^{B_t-\mu t}\,dt
+			\]
+			is almost surely finite and positive.
+			
+			\item[b.] For $n\in\mathbb{N}$, evaluate
+			\[
+			\mathbb{E}\left(Z^n\right)\in(0,\infty].
+			\]
+			
+			\item[c.] For $t\ge0$, check that $Z$ has the same law as
+			\[
+			\int_0^t e^{B_s-\mu s}\,ds+\tilde Z\,e^{B_t-\mu t},
+			\]
+			where $\tilde Z$ is independent of $B$ and has the same law as $Z$.
+			
+			\item[d.] Let $\phi\in C_c^\infty((0,\infty),\mathbb{R})$. Show that
+			\[
+			\mathbb{E}\!\left(\frac12\,\phi''(Z)Z^2+\phi'(Z)(1+\nu Z)\right)=0,
+			\]
+			where $\nu=\frac12-\mu$.
+			
+			\item[e.] Assume that $Z$ has a smooth probability density function $f$.
+			Find an ordinary differential equation satisfied by $f$.
+			\textit{Extra:} solve it.
+		\end{enumerate}
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 12}
+		
+		Let $B$ be a standard Brownian motion. Let $H$ be a progressive process (in the filtration generated by $B$ ). Fix a time horizon $T$ and a constant $\delta$, and assume $\left|H_{t}\right| \leq \delta$ a.s. for $t \in[0, T]$. Let $\tilde{B}_{t}=B_{t}+\int_{0}^{t} H_{s} d s$.\\
+		Let $\mathbb{P}$ denote the law of $\left(B_{t}\right)_{0 \leq t \leq T}$, and $\tilde{\mathbb{P}}$ denote the law of $\left(\tilde{B}_{t}\right)_{0 \leq t \leq T}$, seen as probability measures on $C([0, T], \mathbb{R})$.\\
+		Show that
+		
+		$$
+		2\|\tilde{\mathbb{P}}-\mathbb{P}\|_{T V}=\mathbb{E}_{\mathbb{P}}\left|\frac{d \tilde{\mathbb{P}}}{d \mathbb{P}}-1\right| \leq \sqrt{\exp \left(\delta^{2} T\right)-1}
+		$$
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		\section{Question 13}
+		
+		Let $B$ be a standard Brownian motion. Let $A$ be the family of pairs $(H, K)$ of progressive processes (in the filtration generated by $B$ ) such that $\left|H_{t}\right| \leq 1$ a.s. for all $t \geq 0$, and $\left|K_{t}\right| \leq 1$ a.s. for all $t \geq 0$. For $\alpha=(H, K) \in A$, let $\mathbb{P}_{\alpha}$ denote the law of $\left(X^{(\alpha)}\right)_{0 \leq t \leq 1}$, seen as a probability measure on $C([0,1], \mathbb{R})$, where $X^{(\alpha)}$ is the process such that $X_{0}^{(\alpha)}=0$ and
+		
+		$$
+		d X_{t}^{(\alpha)}=H_{t} d B_{t}+K_{t} d t
+		$$
+		
+		Show that $\left(\mathbb{P}_{\alpha}\right)_{\alpha \in A}$ is a tight family of probability measures on $C([0,1], \mathbb{R})$.
+		
+		
+		
+		\textbf{Answer}
+		
+		\clearpage
+		
+		
+	\end{document}
